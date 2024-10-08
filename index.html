@@ -1,85 +1,131 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="resumeApp">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Resume Advice Article</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-  <style>
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Advice Article</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet">
+    <script
+      src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script
+      src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-sanitize.js"></script>
+    <style>
     .highlight {
       background-color: #f8f9fa;
       padding: 1rem;
       border-left: 5px solid #0d6efd;
       margin-bottom: 1rem;
     }
+
     .credits {
       font-size: 0.9rem;
       color: #6c757d;
     }
   </style>
-</head>
-<body ng-controller="ResumeController">
+  </head>
 
-  <div class="container mt-5">
-    <div class="row">
-      <div class="col-md-8 offset-md-2">
-        <h1 class="mb-4">Biggest Mistakes That Impact Your Resume's Performance and How to Fix Them</h1>
-        <p class="lead">I'm sharing advice</p>
+  <body ng-controller="ResumeController">
 
-        <p>Hello Team,</p>
-        <p>As a regular contributor to this sub, a professional resume writer, and former corporate recruiter, I'd like to share the most common mistakes I see folks make.</p>
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-md-8 offset-md-2">
 
-        <p>This isn't an exhaustive list and isn't in any particular order. These are big mistakes that are potentially causing you to lose out on valuable opportunities and correcting them should improve the overall performance of your job search.</p>
-
-        <!-- Search functionality -->
-        <div class="mb-3">
-          <input type="text" class="form-control" ng-model="searchText" placeholder="Search mistakes..." />
-        </div>
-
-        <!-- Mistakes list with dynamic content using AngularJS -->
-        <div ng-repeat="mistake in mistakes | filter:searchText">
-          <h3 class="mt-5" ng-click="toggleDetail($index)">
-            #{{$index + 1}} {{mistake.title}} <span ng-if="!mistake.showDetail">[+]</span><span ng-if="mistake.showDetail">[-]</span>
-          </h3>
-          <p ng-show="mistake.showDetail">{{mistake.description}}</p>
-
-          <div class="highlight" ng-if="mistake.details && mistake.showDetail">
-            <p><strong>Why?</strong></p>
-            <p><strong>Short answer:</strong> {{mistake.details.shortAnswer}}</p>
-            <p><strong>Longer Answer:</strong> {{mistake.details.longAnswer}}</p>
+          <!-- Credits Section - Source and Author at the top -->
+          <div class="credits mb-5">
+            <p><strong>Source:</strong> Article taken on Tuesday, October 8,
+              2024 from <a
+                href="https://www.reddit.com/r/resumes/comments/tq061t/biggest_mistakes_that_impact_your_resumes/"
+                target="_blank">https://www.reddit.com/r/resumes/comments/tq061t/biggest_mistakes_that_impact_your_resumes/</a>
+            </p>
+            <p><strong>Author:</strong> <a
+                href="https://www.reddit.com/user/FinalDraftResumes/"
+                target="_blank">FinalDraftResumes</a></p>
+            <p><strong>About the Author:</strong></p>
+            <ul>
+              <li>Final Draft Resumes</li>
+              <li>Resume Writer • LinkedIn Brand Expert • Former Recruiter •
+                Email: jc@finaldraftresumes.com</li>
+              <li>4,204 Post karma</li>
+              <li>12,135 Comment karma</li>
+              <li>Joined Reddit: Jan 2, 2020</li>
+              <li>Cake day</li>
+              <li>Achievements: 100-Day Streak, 75-Day Streak, New Share, +22
+                more</li>
+            </ul>
           </div>
-        </div>
 
-        <!-- Credits Section -->
-        <div class="credits mt-5">
-          <p><strong>Source:</strong> Article taken on Tuesday, October 8, 2024 from <a href="https://www.reddit.com/r/resumes/comments/tq061t/biggest_mistakes_that_impact_your_resumes/" target="_blank">https://www.reddit.com/r/resumes/comments/tq061t/biggest_mistakes_that_impact_your_resumes/</a></p>
-          <p><strong>Author:</strong> <a href="https://www.reddit.com/user/FinalDraftResumes/" target="_blank">FinalDraftResumes</a></p>
-          <p><strong>About the Author:</strong></p>
-          <ul>
-            <li>Final Draft Resumes</li>
-            <li>Resume Writer • LinkedIn Brand Expert • Former Recruiter • Email: jc@finaldraftresumes.com</li>
-            <li>4,204 Post karma</li>
-            <li>12,135 Comment karma</li>
-            <li>Joined Reddit: Jan 2, 2020</li>
-            <li>Cake day</li>
-            <li>Achievements: 100-Day Streak, 75-Day Streak, New Share, +22 more</li>
-          </ul>
+          <h1 class="mb-4">Biggest Mistakes That Impact Your Resume's
+            Performance and How to Fix Them</h1>
+          <p class="lead">I'm sharing advice</p>
+
+          <p>Hello Team,</p>
+          <p>As a regular contributor to this sub, a professional resume writer,
+            and former corporate recruiter, I'd like
+            to share the most common mistakes I see folks make.</p>
+
+          <p>This isn't an exhaustive list and isn't in any particular order.
+            These are big mistakes that are potentially
+            causing you to lose out on valuable opportunities and correcting
+            them should improve the overall performance
+            of your job search.</p>
+
+          <!-- Search functionality -->
+          <div class="mb-3">
+            <input type="text" class="form-control" ng-model="searchText"
+              placeholder="Search mistakes..." />
+          </div>
+
+          <!-- Mistakes list with dynamic content using AngularJS -->
+          <div ng-repeat="mistake in mistakes | filter:searchText">
+            <h3 class="mt-5" ng-click="toggleDetail($index)">
+              #{{$index + 1}} {{mistake.title}} <span
+                ng-if="!mistake.showDetail">[+]</span><span
+                ng-if="mistake.showDetail">[-]</span>
+            </h3>
+            <p ng-show="mistake.showDetail">{{mistake.description}}</p>
+
+            <div class="highlight"
+              ng-if="mistake.details && mistake.showDetail">
+              <p><strong>Why?</strong></p>
+              <p><strong>Short answer:</strong>
+                {{mistake.details.shortAnswer}}</p>
+              <p><strong>Longer Answer:</strong> <span
+                  ng-bind-html="mistake.details.longAnswer"></span></p>
+            </div>
+          </div>
+
+          <!-- Additional content at the bottom -->
+          <div class="mt-5">
+            <h2>DON'T DO THIS</h2>
+            <ul>
+              <li>Copy and paste the job description into your resume - it's
+                very easy to spot and is disingenuous.</li>
+              <li>Lie and/or embellish your accomplishments. You may get away
+                with it, but if a clever hiring manager puts
+                you on the spot, it'll be obvious (In my experience as a
+                recruiter, I was privy to many of these
+                situations during interviews and it doesn't look good - trust
+                me).</li>
+            </ul>
+            <p>I hope you guys find this useful!</p>
+          </div>
+
         </div>
       </div>
     </div>
-  </div>
 
-  <script>
-    angular.module('resumeApp', []).controller('ResumeController', function ($scope) {
-      // Dynamic list of resume mistakes
+    <script>
+    angular.module('resumeApp', ['ngSanitize']).controller('ResumeController', function ($scope) {
       $scope.mistakes = [
         {
           title: 'Using the Wrong Layout',
-          description: 'Don\'t use a two-column resume if you\'re submitting through company websites or job boards like Indeed or LinkedIn.',
+          description: 'There\'s already another stickied post on this subject, but I still see people committing this mistake all the time. In short, don\'t use a two-column resume if you\'re submitting through company websites or job boards (i.e., Indeed, LinkedIn etc.).',
           details: {
             shortAnswer: 'Applicant Tracking Systems (ATS)',
-            longAnswer: 'ATS reads your resume from top to bottom and left to right. When you add another column, you make it harder for the system to read your resume properly. This can cause sections to get misread or not read at all.'
+            longAnswer: 'ATS reads your resume from top to bottom and left to right. When you add another column (or other incompatible elements for that matter, such as graphics or logos), you introduce another layer of complexity and make it harder for the system to properly read your resume. As a result, sections may get misread or not read all. Use a traditional, single-column format. I recommend creating your resume using Microsoft Word or Google Docs. There’s a basic Google Docs template in the wiki section of this sub - I\'ll link it <a href="https://docs.google.com/document/d/1wdkgpgU7lFoV801ysrBn8qrPaIpyUsUH" target="_blank">here</a> for your convenience. I do not recommend using other programs such as Canva, Adobe InDesign, or Overleaf (LaTeX).'
           },
           showDetail: false
         },
@@ -88,7 +134,16 @@
           description: 'A resume with zero context sounds generic and can make you blend in with other candidates. Context makes your resume unique and informative.',
           details: {
             shortAnswer: 'Lack of Specificity',
-            longAnswer: 'When you use generic statements, you fail to tell the recruiter why your experience is valuable. Be specific by quantifying your achievements, providing context, and explaining the results of your actions.'
+            longAnswer: `To begin, let me first define the term 'context' which is going to be key here. Context is specific information that makes your resume and the descriptions within it unique to you. It allows the reader to understand and appreciate your story. A resume with zero context will sound generic - a lot like a job advertisement. Here's an extreme example:<br><br>
+        <strong>Generic Statement:</strong> "Achieved excellent sales results".<br><br>
+        <strong>Specific/Contextualized Statement:</strong> "Earned top spot in the company's 2019 national sales rankings for achieving 220% against annual sales target".<br><br>
+        The second statement is much more informative and tells the audience not only what the achievement was, but also why it was earned. This is a good example of how you can use context to ensure your descriptions are quantified, specific, and informative.<br><br>
+        In general, a good description will address three informational goals:
+        <ul>
+          <li>A challenge or problem to be solved. This doesn't always need to be explicitly stated. For example, in the second statement in quotes above, the problem is implied - to meet and exceed sales goals and rank high as possible on the sales charts.</li>
+          <li>The action(s) you took to address that challenge. What did YOU do specifically. I don't care what your team or your boss did.</li>
+          <li>An outcome that resulted as a direct result of your actions. What did your actions produce? It doesn't always need to be a monumental, earth-shattering impact, but it does need to be there.</li>
+        </ul>`
           },
           showDetail: false
         },
@@ -97,19 +152,34 @@
           description: 'Submissions of a resume not tailored to the job you are applying for will make you look unprepared or lazy.',
           details: {
             shortAnswer: 'Irrelevance',
-            longAnswer: 'Tailoring your resume to match the job description demonstrates that you understand the role. Include the necessary qualifications, skills, and responsibilities in a clear and specific way.'
+            longAnswer: `If you were to walk into your local car dealership looking for an off-road vehicle for travelling through muddy terrain and the salesperson tries to sell you on a two-door Volkswagen beetle, you'd think they weren't very good at their job.<br><br>
+        So why would you do that to a prospective employer? By submitting a resume for a role it wasn't written for, you're demonstrating one of two things:<br><br>
+        <ul>
+          <li>You don't understand the requirements of the role you're applying for, OR</li>
+          <li>You're too lazy to tailor your resume to the role.</li>
+        </ul>
+        Both of these are equally bad and often result in being ignored by the company.<br><br>
+        <strong>How do you tailor your resume to the job?</strong><br><br>
+        <ul>
+          <li><strong>Step 1:</strong> Read the job posting carefully. Identify what they're looking for in terms of experience/responsibilities, skills, licenses/certifications, and education.</li>
+          <li><strong>Step 2:</strong> Put yourself in the recruiter's shoes. How quickly can you identify any given prerequisite from the job advertisement on your resume? Is it easily identifiable or do you need to dig in for several moments to find it?</li>
+          <li><strong>Step 3:</strong> Does the language used in your resume match that in the job description? Are you using the same terms?</li>
+        </ul>
+        <strong>Example 1:</strong> Company A is requesting at least 5 years of experience doing X. Your summary (if you include one) would begin by saying 'X Professional with 5+ years of experience in X'.<br><br>
+        <strong>Example 2:</strong> Company B is requesting CPR, AED, ACLS, and PALS certifications. You would include a section labelled as 'Certifications' and list these (exactly as they're presented in the ad).`
           },
           showDetail: false
         }
       ];
 
-      // Function to toggle visibility of detailed descriptions
-      $scope.toggleDetail = function(index) {
+      $scope.toggleDetail = function (index) {
         $scope.mistakes[index].showDetail = !$scope.mistakes[index].showDetail;
       };
     });
   </script>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+
 </html>
