@@ -2,7 +2,7 @@
 
 This is a simple, interactive website that shares professional resume advice, highlighting the most common mistakes people make when writing resumes and how to fix them. The website is built using **AngularJS** for dynamic interactivity and **Bootstrap 5** for responsive design.
 
-The site can be viewed on GitHub Pages [here](https://<your-github-username>.github.io/<repository-name>/).
+The site can be viewed on GitHub Pages [here](https://ramhaidar.github.io/resume-advice).
 
 ## Features
 
@@ -14,7 +14,7 @@ The site can be viewed on GitHub Pages [here](https://<your-github-username>.git
 
 ## Demo
 
-Check out the live website: [Resume Advice Website](https://<your-github-username>.github.io/<repository-name>/)
+Check out the live website: [Resume Advice Website](https://ramhaidar.github.io/resume-advice)
 
 ## Technologies Used
 
@@ -28,7 +28,7 @@ Check out the live website: [Resume Advice Website](https://<your-github-usernam
 1. Clone this repository:
 
    ```bash
-   git clone https://github.com/<your-github-username>/<repository-name>.git
+   git clone https://github.com/ramhaidar/resume-advice.git
    ```
 
 2. Open the `index.html` file in a web browser.
@@ -67,7 +67,7 @@ Then, visit `http://localhost:8000` to see the website locally.
 
 ## Contributing
 
-If you'd like to contribute, feel free to fork the repository, make your changes, and submit a pull request. You can also report any issues you find on the [issues page](https://github.com/<your-github-username>/<repository-name>/issues).
+If you'd like to contribute, feel free to fork the repository, make your changes, and submit a pull request. You can also report any issues you find on the [issues page](https://github.com/ramhaidar/resume-advice/issues).
 
 ## License
 
